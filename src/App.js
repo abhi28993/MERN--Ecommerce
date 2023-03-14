@@ -20,20 +20,22 @@ import LoginPage from "./pages/LoginPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ProductListPage from "./pages/ProductListPage";
 import RegisterPage from "./pages/RegisterPage";
-import UserCartDetailsPage from "./user/UserCartDetailsPage";
-import UserOrderDetailsPage from "./user/UserOrderDetailsPage";
-import UserOrderPage from "./user/UserOrderPage";
-import UserProfilePage from "./user/UserProfilePage";
+import UserCartDetailsPage from "./pages/user/UserCartDetailsPage";
+import UserOrderDetailsPage from "./pages/user/UserOrderDetailsPage";
+import UserOrderPage from "./pages/user/UserOrderPage";
+import UserProfilePage from "./pages/user/UserProfilePage";
+import ScrollToTop from "./utils/scrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+     <ScrollToTop />
       <HeaderComponent />
       <Routes>
         <Route element={<RoutesWithUserChatComponent />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/product-list" element={<ProductListPage />} />
-          <Route path="/product-details/:id" element={<ProductDetailsPage />} />
+          <Route path="/product-details" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -70,6 +72,7 @@ const App = () => {
           <Route path="/admin/order-details" element={<AdminAnalyticsPage />} />
         </Route>
       </Routes>
+      <br/>
       <FooterComponents />
     </BrowserRouter>
   );

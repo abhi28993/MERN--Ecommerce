@@ -1,19 +1,18 @@
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import Spinner from 'react-bootstrap/Spinner'
-const RegisterPage = () => {
+
+const UserProfilePage = () => {
   const [validated, setValidated] = useState(false);
 
   const onChange = () => {
-      const password = document.querySelector("input[name=password]")
-      const confirm = document.querySelector("input[name=confirmPassword]")
-      if(confirm.value === password.value) {
-          confirm.setCustomValidity("")
-      } else {
-          confirm.setCustomValidity("Passwords do not match")
-      }
-  }
+    const password = document.querySelector("input[name=password]");
+    const confirm = document.querySelector("input[name=confirmPassword]");
+    if (confirm.value === password.value) {
+      confirm.setCustomValidity("");
+    } else {
+      confirm.setCustomValidity("Passwords do not match");
+    }
+  };
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -28,14 +27,14 @@ const RegisterPage = () => {
     <Container>
       <Row className="mt-5 justify-content-md-center">
         <Col md={6}>
-          <h1>Register</h1>
+          <h1>Change your profile</h1>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="validationCustom01">
               <Form.Label>Your name</Form.Label>
               <Form.Control
                 required
                 type="text"
-                placeholder="Enter your name"
+                defaultValue="John"
                 name="name"
               />
               <Form.Control.Feedback type="invalid">
@@ -47,7 +46,7 @@ const RegisterPage = () => {
               <Form.Control
                 required
                 type="text"
-                placeholder="Enter your last name"
+                defaultValue="Doe"
                 name="lastName"
               />
               <Form.Control.Feedback type="invalid">
@@ -57,14 +56,57 @@ const RegisterPage = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                name="email"
-                required
-                type="email"
-                placeholder="Enter email"
+                disabled
+                value="john@doe.com   if you want to change email, remove account and create new one with new email address"
               />
-              <Form.Control.Feedback type="invalid">
-                Please anter a valid email address
-              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPhone">
+              <Form.Label>Phone number</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your phone number"
+                defaultValue=""
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicAddress">
+              <Form.Label>Address</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your street name and house number"
+                defaultValue=""
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCountry">
+              <Form.Label>Country</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your country"
+                defaultValue=""
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicZip">
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your Zip code"
+                defaultValue=""
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCity">
+              <Form.Label>City</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your city"
+                defaultValue=""
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicState">
+              <Form.Label>State</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your state"
+                defaultValue=""
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
@@ -98,28 +140,12 @@ const RegisterPage = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Row className="pb-2">
-              <Col>
-                Do you have an account already?
-                <Link to={"/login"}> Login </Link>
-              </Col>
-            </Row>
-
-            <Button type="submit">
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />
-              Submit
-            </Button>
+            <Button variant="primary" type="submit">Update</Button>
             <Alert show={true} variant="danger">
-                User with that email already exists!
+              User with that email already exists!
             </Alert>
             <Alert show={true} variant="info">
-                User created
+              User updated
             </Alert>
           </Form>
         </Col>
@@ -128,5 +154,5 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default UserProfilePage;
 

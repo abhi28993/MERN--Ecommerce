@@ -9,11 +9,11 @@ import {
 } from "react-bootstrap";
 import CartItemComponent from "../../components/CartItemComponents";
 
-const AdminOrderDetailsPage = () => {
+const UserCartDetailsPage = () => {
   return (
     <Container fluid>
       <Row className="mt-4">
-        <h1>Order Details</h1>
+        <h1>Cart Details</h1>
         <Col md={8}>
           <br />
           <Row>
@@ -25,7 +25,7 @@ const AdminOrderDetailsPage = () => {
             </Col>
             <Col md={6}>
               <h2>Payment method</h2>
-              <Form.Select disabled={false}>
+              <Form.Select>
                 <option value="pp">PayPal</option>
                 <option value="cod">
                   Cash On Delivery (delivery may be delayed)
@@ -35,12 +35,12 @@ const AdminOrderDetailsPage = () => {
             <Row>
               <Col>
                 <Alert className="mt-3" variant="danger">
-                  Not delivered
+                  Not delivered. In order to make order, fill out your profile with correct address, city etc.
                 </Alert>
               </Col>
               <Col>
                 <Alert className="mt-3" variant="success">
-                  Paid on 2022-10-02
+                  Not paid yet
                 </Alert>
               </Col>
             </Row>
@@ -73,7 +73,7 @@ const AdminOrderDetailsPage = () => {
             <ListGroup.Item>
               <div className="d-grid gap-2">
                 <Button size="lg" variant="danger" type="button">
-                  Mark as delivered
+                  Pay for the order
                 </Button>
               </div>
             </ListGroup.Item>
@@ -84,5 +84,5 @@ const AdminOrderDetailsPage = () => {
   );
 };
 
-export default AdminOrderDetailsPage;
+export default UserCartDetailsPage;
 

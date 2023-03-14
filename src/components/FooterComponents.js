@@ -1,9 +1,27 @@
-import React from 'react'
+import { Container, Row, Col } from "react-bootstrap";
 
-const FooterComponents = () => {
+const FooterComponent = () => {
   return (
-    <div>FooterComponents</div>
-  )
-}
+    <footer>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Container fluid className="mt-5">
+        <Row className="mt-5">
+          <Col className="bg-dark text-white text-center py-5">
+            Copyright &copy; Best Online Shop
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
 
-export default FooterComponents
+export default FooterComponent;
